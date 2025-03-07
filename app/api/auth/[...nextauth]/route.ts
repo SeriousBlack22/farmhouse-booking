@@ -3,6 +3,18 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
 
+// Extend the built-in session types
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      id?: string
+      name?: string | null
+      email?: string | null
+      image?: string | null
+    }
+  }
+}
+
 // In a real app, you would use a database to store and validate users
 // This is a mock implementation for demo purposes
 const mockUsers = [
@@ -67,7 +79,8 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string
+        // @ts-ignore - we've extended the types in types/next-auth.d.ts
+        session.user.id = token.id
       }
       return session
     },

@@ -13,30 +13,32 @@ import { addDays, format, differenceInDays } from 'date-fns'
 const farmhouses = [
   {
     id: 1,
-    name: 'Meadow View Farmhouse',
-    location: 'Yorkshire Dales, UK',
-    description: 'A charming retreat with panoramic views of rolling meadows. This beautifully restored farmhouse offers a peaceful escape from city life with its spacious rooms, modern amenities, and stunning natural surroundings. Wake up to the sound of birds and enjoy your morning coffee while overlooking the picturesque meadows.',
+    name: 'Aarohi Farm',
+    location: 'Lonavala, Maharashtra',
+    description: 'A beautiful 2 BHK farmhouse with a swimming pool, perfect for a weekend getaway. This charming property offers stunning views of the surrounding hills and valleys, making it an ideal retreat for nature lovers and those seeking tranquility.',
     price: 150,
-    bedrooms: 3,
+    bedrooms: 2,
     bathrooms: 2,
     guests: 6,
-    amenities: ['wifi', 'fireplace', 'pet-friendly'],
-    image: 'https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    amenities: ['wifi', 'pool', 'fireplace', 'pet-friendly'],
+    image: '/images/farmhouse/1.jpg',
     images: [
-      'https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80'
+      '/images/farmhouse/1.jpg',
+      '/images/farmhouse/2.jpg',
+      '/images/farmhouse/3.jpg',
+      '/images/farmhouse/4.jpg',
+      '/images/farmhouse/5.jpg',
+      '/images/farmhouse/6.jpg'
     ],
     features: [
-      'Fully equipped kitchen with modern appliances',
-      'Spacious living room with fireplace',
-      'Master bedroom with en-suite bathroom',
-      'Two additional bedrooms with shared bathroom',
-      'Private garden with outdoor seating',
-      'BBQ facilities',
-      'Parking for 2 cars',
-      'Walking distance to local village'
+      'Swimming pool with deck',
+      'Fully equipped modern kitchen',
+      'Two spacious bedrooms',
+      'Two modern bathrooms',
+      'Living room with mountain views',
+      'Outdoor dining area',
+      'Garden with seating',
+      'Parking space'
     ],
     reviews: [
       {
@@ -44,24 +46,17 @@ const farmhouses = [
         name: 'Sarah Johnson',
         date: '2023-10-15',
         rating: 5,
-        comment: 'Our stay at Meadow View was absolutely magical. The farmhouse was beautifully maintained, and waking up to those views every morning was priceless.'
+        comment: 'Absolutely stunning property! The views are breathtaking and the amenities are top-notch. We loved our weekend stay here.'
       },
       {
         id: 2,
-        name: 'David Wilson',
+        name: 'Michael Thompson',
         date: '2023-09-22',
         rating: 4,
-        comment: 'Great location and beautiful property. The kitchen was well-equipped and we loved the fireplace. Would definitely recommend!'
-      },
-      {
-        id: 3,
-        name: 'Emma Thompson',
-        date: '2023-08-05',
-        rating: 5,
-        comment: 'Perfect getaway for our family. The kids loved exploring the surrounding meadows and we all enjoyed the cozy evenings by the fire.'
+        comment: 'Great location and beautiful property. The pool was perfect for the kids. Would definitely recommend!'
       }
     ],
-    slug: 'meadow-view'
+    slug: 'aarohi-farm'
   },
   {
     id: 2,

@@ -277,7 +277,7 @@ const BookingPage = () => {
                 <div className="mb-6">
                   <div className="relative h-48 rounded-lg overflow-hidden mb-4">
                     <Image
-                      src="https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                      src="/images/farmhouse/1.jpg"
                       alt="Aarohi Farm"
                       fill
                       className="object-cover"

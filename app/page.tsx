@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaSwimmingPool, FaUtensils, FaGamepad, FaFire, FaLeaf } from 'react-icons/fa'
-import PhotoGallery from './components/PhotoGallery'
-import VideoSection from './components/VideoSection'
 
 export default function Home() {
   return (
@@ -11,7 +9,7 @@ export default function Home() {
       <section className="relative h-[80vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            src="/images/farmhouse/1.jpg"
             alt="Aarohi Farm - Beautiful Farmhouse"
             fill
             className="object-cover brightness-75"
@@ -93,7 +91,7 @@ export default function Home() {
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
               <div className="relative h-96">
                 <Image
-                  src="https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                  src="/images/farmhouse/3.jpg"
                   alt="Aarohi Farm"
                   fill
                   className="object-cover"
@@ -159,14 +157,62 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Gallery</h2>
-          <PhotoGallery />
-        </div>
-      </section>
-
-      {/* Video Tour Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <VideoSection />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/4.jpg"
+                alt="Aarohi Farm Living Room"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/5.jpg"
+                alt="Aarohi Farm Bedroom"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/6.jpg"
+                alt="Aarohi Farm Swimming Pool"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/7.jpg"
+                alt="Aarohi Farm Surroundings"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/8.jpg"
+                alt="Aarohi Farm Dining Area"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/9.jpg"
+                alt="Aarohi Farm Garden"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -181,7 +227,7 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                    src="/images/farmhouse/21.jpg"
                     alt="Sarah Johnson"
                     fill
                     className="object-cover"
@@ -200,7 +246,7 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                    src="/images/farmhouse/22.jpg"
                     alt="Michael Thompson"
                     fill
                     className="object-cover"
@@ -219,7 +265,7 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80"
+                    src="/images/farmhouse/23.jpg"
                     alt="Emily Rodriguez"
                     fill
                     className="object-cover"

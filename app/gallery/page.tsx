@@ -8,75 +8,153 @@ import { FaTimes } from 'react-icons/fa'
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    src: '/images/farmhouse/1.jpg',
     alt: 'Aarohi Farm - Exterior View',
     category: 'exterior'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    src: '/images/farmhouse/2.jpg',
     alt: 'Aarohi Farm - Living Room',
     category: 'interior'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    src: '/images/farmhouse/3.jpg',
     alt: 'Aarohi Farm - Bedroom',
     category: 'interior'
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
+    src: '/images/farmhouse/4.jpg',
     alt: 'Aarohi Farm - Swimming Pool',
     category: 'amenities'
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Aarohi Farm - Surroundings',
+    src: '/images/farmhouse/5.jpg',
+    alt: 'Aarohi Farm - Garden View',
     category: 'surroundings'
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    src: '/images/farmhouse/6.jpg',
     alt: 'Aarohi Farm - Dining Area',
     category: 'interior'
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1595877244574-e90ce41ce089?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Aarohi Farm - Garden',
-    category: 'surroundings'
-  },
-  {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Aarohi Farm - Front View',
-    category: 'exterior'
-  },
-  {
-    id: 9,
-    src: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    src: '/images/farmhouse/7.jpg',
     alt: 'Aarohi Farm - Kitchen',
     category: 'interior'
   },
   {
-    id: 10,
-    src: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    id: 8,
+    src: '/images/farmhouse/8.jpg',
     alt: 'Aarohi Farm - Bathroom',
     category: 'interior'
   },
   {
-    id: 11,
-    src: 'https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Aarohi Farm - Bonfire Area',
+    id: 9,
+    src: '/images/farmhouse/9.jpg',
+    alt: 'Aarohi Farm - Outdoor Seating',
     category: 'amenities'
   },
   {
+    id: 10,
+    src: '/images/farmhouse/10.jpg',
+    alt: 'Aarohi Farm - Front View',
+    category: 'exterior'
+  },
+  {
+    id: 11,
+    src: '/images/farmhouse/11.jpg',
+    alt: 'Aarohi Farm - Master Bedroom',
+    category: 'interior'
+  },
+  {
     id: 12,
-    src: 'https://images.unsplash.com/photo-1595252129837-2f7120e1d2fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Aarohi Farm - Outdoor Seating',
+    src: '/images/farmhouse/12.jpg',
+    alt: 'Aarohi Farm - Second Bedroom',
+    category: 'interior'
+  },
+  {
+    id: 13,
+    src: '/images/farmhouse/13.jpg',
+    alt: 'Aarohi Farm - Garden Area',
+    category: 'surroundings'
+  },
+  {
+    id: 14,
+    src: '/images/farmhouse/14.jpg',
+    alt: 'Aarohi Farm - Poolside',
     category: 'amenities'
+  },
+  {
+    id: 15,
+    src: '/images/farmhouse/15.jpg',
+    alt: 'Aarohi Farm - Evening View',
+    category: 'exterior'
+  },
+  {
+    id: 16,
+    src: '/images/farmhouse/16.jpg',
+    alt: 'Aarohi Farm - Lounge Area',
+    category: 'interior'
+  },
+  {
+    id: 17,
+    src: '/images/farmhouse/17.jpg',
+    alt: 'Aarohi Farm - Terrace',
+    category: 'amenities'
+  },
+  {
+    id: 18,
+    src: '/images/farmhouse/18.jpg',
+    alt: 'Aarohi Farm - Garden Path',
+    category: 'surroundings'
+  },
+  {
+    id: 19,
+    src: '/images/farmhouse/19.jpg',
+    alt: 'Aarohi Farm - Night View',
+    category: 'exterior'
+  },
+  {
+    id: 21,
+    src: '/images/farmhouse/21.jpg',
+    alt: 'Aarohi Farm - Panoramic View',
+    category: 'surroundings'
+  },
+  {
+    id: 22,
+    src: '/images/farmhouse/22.jpg',
+    alt: 'Aarohi Farm - Entrance',
+    category: 'exterior'
+  },
+  {
+    id: 23,
+    src: '/images/farmhouse/23.jpg',
+    alt: 'Aarohi Farm - Living Space',
+    category: 'interior'
+  },
+  {
+    id: 24,
+    src: '/images/farmhouse/24.jpg',
+    alt: 'Aarohi Farm - Outdoor View',
+    category: 'surroundings'
+  },
+  {
+    id: 25,
+    src: '/images/farmhouse/25.jpg',
+    alt: 'Aarohi Farm - Relaxation Area',
+    category: 'amenities'
+  },
+  {
+    id: 26,
+    src: '/images/farmhouse/26.jpg',
+    alt: 'Aarohi Farm - Garden View',
+    category: 'surroundings'
   }
 ]
 
@@ -173,6 +251,23 @@ const GalleryPage = () => {
               />
             </div>
           ))}
+        </div>
+        
+        {/* Video Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Take a Virtual Tour</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <video 
+                controls 
+                className="w-full"
+                poster="/images/farmhouse/1.jpg"
+              >
+                <source src="/images/farmhouse/20.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
         
         {/* No Results */}

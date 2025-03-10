@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaSwimmingPool, FaUtensils, FaGamepad, FaFire, FaLeaf } from 'react-icons/fa'
+import PhotoGallery from './components/PhotoGallery'
+import VideoSection from './components/VideoSection'
 
 export default function Home() {
   return (
@@ -157,62 +159,14 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Gallery</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Aarohi Farm Living Room"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Aarohi Farm Bedroom"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
-                alt="Aarohi Farm Swimming Pool"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Aarohi Farm Surroundings"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Aarohi Farm Dining Area"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1595877244574-e90ce41ce089?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Aarohi Farm Garden"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
+          <PhotoGallery />
+        </div>
+      </section>
+
+      {/* Video Tour Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-custom">
+          <VideoSection />
         </div>
       </section>
 

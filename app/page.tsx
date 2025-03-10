@@ -165,7 +165,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/farmhouse/4.jpg"
+                src="/images/farmhouse/1.jpg"
+                alt="Aarohi Farm Exterior View"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/2.jpg"
                 alt="Aarohi Farm Living Room"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -174,7 +183,7 @@ export default function Home() {
             
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/farmhouse/5.jpg"
+                src="/images/farmhouse/3.jpg"
                 alt="Aarohi Farm Bedroom"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -183,39 +192,36 @@ export default function Home() {
             
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/farmhouse/6.jpg"
-                alt="Aarohi Farm Swimming Pool"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/7.jpg"
-                alt="Aarohi Farm Surroundings"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/8.jpg"
-                alt="Aarohi Farm Dining Area"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
                 src="/images/farmhouse/9.jpg"
-                alt="Aarohi Farm Garden"
+                alt="Aarohi Farm Outdoor Seating"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/19.jpg"
+                alt="Aarohi Farm Night View"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/farmhouse/23.jpg"
+                alt="Aarohi Farm Living Space"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/gallery" className="btn btn-primary">
+              View Full Gallery
+            </Link>
           </div>
         </div>
       </section>

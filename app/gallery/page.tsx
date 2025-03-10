@@ -236,36 +236,84 @@ const GalleryPage = () => {
         </div>
         
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredImages.map((image) => (
-            <div 
-              key={image.id} 
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => openLightbox(image.id)}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
+        <div className="mb-12">
+          <div className="flex overflow-x-auto pb-4 hide-scrollbar">
+            <div className="flex gap-4">
+              {filteredImages.map((image) => (
+                <div 
+                  key={image.id} 
+                  className="relative w-[300px] h-[300px] flex-shrink-0 overflow-hidden rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => openLightbox(image.id)}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          
+          {/* Scroll Buttons */}
+          <div className="flex justify-center gap-4 mt-4">
+            <button
+              onClick={() => {
+                const gallery = document.querySelector('.overflow-x-auto');
+                if (gallery) {
+                  gallery.scrollLeft -= 300;
+                }
+              }}
+              className="bg-primary-600 text-white p-2 rounded-full hover:bg-primary-700 transition-colors"
+            >
+              &#10094;
+            </button>
+            <button
+              onClick={() => {
+                const gallery = document.querySelector('.overflow-x-auto');
+                if (gallery) {
+                  gallery.scrollLeft += 300;
+                }
+              }}
+              className="bg-primary-600 text-white p-2 rounded-full hover:bg-primary-700 transition-colors"
+            >
+              &#10095;
+            </button>
+          </div>
         </div>
+        
+        {/* Add custom scrollbar styles */}
+        <style jsx global>{`
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+          .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          .overflow-x-auto {
+            scroll-behavior: smooth;
+          }
+        `}</style>
         
         {/* Video Section */}
         <div className="mt-16">
           <h2 className="text-3xl font-bold mb-8 text-center">Take a Virtual Tour</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+          <div className="max-w-[400px] mx-auto">
+            <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg">
               <video 
                 controls 
-                className="w-full"
-                poster="/images/farmhouse/1.jpg"
+                className="w-full h-full object-cover"
+                poster="/images/farmhouse/23.jpg"
+                playsInline
               >
                 <source src="/images/farmhouse/20.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+            </div>
+            <div className="mt-4 text-center">
+              <p className="text-gray-600">Swipe up to view the full virtual tour</p>
             </div>
           </div>
         </div>

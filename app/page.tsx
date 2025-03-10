@@ -6,25 +6,29 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center">
+      <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/farmhouse/1.jpg"
-            alt="Aarohi Farm - Beautiful Farmhouse"
-            fill
-            className="object-cover brightness-75"
-            priority
-          />
+          <div className="relative w-[150vh] h-[150vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Image
+              src="/images/farmhouse/23.jpg"
+              alt="Aarohi Farm - Beautiful Farmhouse"
+              fill
+              className="object-cover object-center brightness-[0.65] rotate-[-90deg] scale-[1.8]"
+              priority
+              sizes="100vw"
+              quality={100}
+            />
+          </div>
         </div>
         <div className="container-custom relative z-10 text-white">
           <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
               Aarohi Farm
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-xl mb-8 drop-shadow-md">
               Experience the charm and tranquility of rural living in our beautiful 2 BHK farmhouse surrounded by nature
             </p>
-            <Link href="/booking" className="btn btn-primary text-lg px-8 py-3">
+            <Link href="/booking" className="btn btn-primary text-lg px-8 py-3 hover:scale-105 transition-transform">
               Book Your Stay Now
             </Link>
           </div>

@@ -8,12 +8,12 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="relative w-[150vh] h-[150vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="relative w-[120vh] h-[120vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <Image
               src="/images/farmhouse/23.jpg"
               alt="Aarohi Farm - Beautiful Farmhouse"
               fill
-              className="object-cover object-center brightness-[0.65] rotate-[-90deg] scale-[1.8]"
+              className="object-cover object-center brightness-[0.65] rotate-[-90deg] scale-[1.2]"
               priority
               sizes="100vw"
               quality={100}

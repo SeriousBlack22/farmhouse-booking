@@ -54,7 +54,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-bold">Email</h3>
-                    <p className="text-gray-600">info@rusticretreats.com</p>
+                    <p className="text-gray-600">info@aarohifarm.com</p>
                   </div>
                 </div>
                 
@@ -64,7 +64,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-bold">Phone</h3>
-                    <p className="text-gray-600">+44 (0) 123 456 7890</p>
+                    <p className="text-gray-600"><a href="tel:+918983222505" className="hover:text-primary-600 transition-colors">+91 89832 22505 (Sanjay Jadhav)</a></p>
                   </div>
                 </div>
                 
@@ -75,9 +75,12 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-bold">Address</h3>
                     <p className="text-gray-600">
-                      123 Countryside Lane<br />
-                      Cotswolds, UK<br />
-                      AB12 3CD
+                      <a href="https://maps.app.goo.gl/uSJE2GX6zojaRwkU7" target="_blank" rel="noreferrer" className="hover:text-primary-600 transition-colors">
+                        Aarohi farm house, Plot 27/B<br />
+                        Shenve Road, off Dolkhamb, Sector 2<br />
+                        Ranvihir, Tal- Shahapur, Dist- Thane<br />
+                        Maharashtra 421601
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -245,10 +248,17 @@ const ContactPage = () => {
         {/* Map */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-6">Find Us</h2>
-          <div className="h-[400px] bg-gray-200 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500">
-              [Map would be displayed here in a production environment]
-            </p>
+          <div className="h-[400px] rounded-lg overflow-hidden relative shadow-lg">
+            <iframe 
+              src="https://maps.google.com/maps?q=Aarohi+farm+house,+Ranvihir,+Maharashtra+421601&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0"
+            ></iframe>
           </div>
         </div>
       </div>

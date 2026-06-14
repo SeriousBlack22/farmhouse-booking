@@ -1,309 +1,215 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaSwimmingPool, FaUtensils, FaGamepad, FaFire, FaLeaf } from 'react-icons/fa'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { FaSwimmingPool, FaUtensils, FaGamepad, FaFire, FaStar, FaWhatsapp } from 'react-icons/fa'
 
 export default function Home() {
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="relative w-[120vh] h-[120vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Image
-              src="/images/farmhouse/23.jpg"
-              alt="Aarohi Farm - Beautiful Farmhouse"
-              fill
-              className="object-cover object-center brightness-[0.65] rotate-[-90deg] scale-[1.2]"
-              priority
-              sizes="100vw"
-              quality={100}
-            />
-          </div>
-        </div>
-        <div className="container-custom relative z-10 text-white">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-              Aarohi Farm
+    <div className="flex flex-col min-h-screen bg-cream selection:bg-primary-900 selection:text-cream">
+      
+      {/* Premium Hero Section */}
+      <section ref={containerRef} className="relative h-[100vh] flex flex-col justify-center items-center overflow-hidden">
+        <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
+          <Image
+            src="/images/farmhouse/1.jpg"
+            alt="Aarohi Farm - Beautiful Farmhouse"
+            fill
+            className="object-cover object-center brightness-[0.65] scale-105"
+            priority
+            quality={100}
+          />
+          {/* Subtle noise overlay for texture */}
+          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
+        </motion.div>
+        
+        <motion.div 
+          className="container-custom relative z-10 text-center text-white mt-12"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 hover:bg-white/20 transition-colors cursor-pointer">
+            <FaStar className="text-accent-400" />
+            <span className="text-sm font-medium tracking-widest uppercase">4.9 Superhost · 200+ Reviews</span>
+          </motion.div>
+          
+          <motion.div variants={fadeInUp} className="overflow-hidden mb-6">
+            <h1 className="text-7xl md:text-[10rem] font-bold drop-shadow-2xl text-white tracking-tighter leading-none font-serif">
+              Aarohi<br className="md:hidden"/> Farm
             </h1>
-            <p className="text-xl mb-8 drop-shadow-md">
-              Experience the charm and tranquility of rural living in our beautiful 2 BHK farmhouse surrounded by nature
-            </p>
-            <Link href="/booking" className="btn btn-primary text-lg px-8 py-3 hover:scale-105 transition-transform">
-              Book Your Stay Now
+          </motion.div>
+          
+          <motion.p variants={fadeInUp} className="text-xl md:text-3xl font-light mb-12 drop-shadow-md max-w-3xl mx-auto text-gray-200 font-serif italic">
+            Your private countryside sanctuary. Experience luxury wrapped in nature.
+          </motion.p>
+          
+          <motion.div variants={fadeInUp}>
+            <Link href="#gallery" className="bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest transition-colors inline-block mt-4">
+              Explore the Estate
             </Link>
-          </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Bento Box Gallery Section */}
+      <section id="gallery" className="py-32 bg-cream">
+        <div className="container-custom">
+          <motion.div 
+            className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="max-w-2xl">
+              <h2 className="text-5xl md:text-7xl font-bold text-primary-950 mb-6 leading-tight tracking-tighter">A Glimpse of<br/><span className="text-accent-500 italic font-serif">Paradise</span></h2>
+              <p className="text-gray-600 text-xl font-light">Explore our carefully curated spaces designed for perfect harmony with the surrounding landscape.</p>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <Link href="/gallery" className="inline-flex items-center gap-2 text-primary-800 font-bold text-sm uppercase tracking-widest hover:text-accent-500 transition-colors group">
+                View full gallery 
+                <span className="group-hover:translate-x-2 transition-transform">→</span>
+              </Link>
+            </motion.div>
+          </motion.div>
+          
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-12 gap-4 h-[800px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            {/* Large Feature Image */}
+            <motion.div variants={fadeInUp} className="md:col-span-8 md:row-span-2 relative group rounded-[2rem] overflow-hidden cursor-pointer">
+              <Image src="/images/farmhouse/21.jpg" alt="Exterior" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-8 left-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <p className="text-sm font-bold tracking-widest uppercase mb-2">The Estate</p>
+                <p className="text-2xl font-serif">Breathtaking Architecture</p>
+              </div>
+            </motion.div>
+            
+            {/* Top Right */}
+            <motion.div variants={fadeInUp} className="md:col-span-4 relative group rounded-[2rem] overflow-hidden cursor-pointer">
+              <Image src="/images/farmhouse/4.jpg" alt="Pool" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500"></div>
+            </motion.div>
+            
+            {/* Bottom Right Split */}
+            <motion.div variants={fadeInUp} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden cursor-pointer">
+              <Image src="/images/farmhouse/3.jpg" alt="Bedroom" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            </motion.div>
+            
+            <motion.div variants={fadeInUp} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden cursor-pointer">
+              <Image src="/images/farmhouse/19.jpg" alt="Night View" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Link href="/gallery" className="absolute inset-0 bg-primary-900/80 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
+                <span className="text-sm font-bold uppercase tracking-widest">See More</span>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
+      {/* Editorial Amenities Section */}
+      <section className="py-32 bg-primary-950 text-cream selection:bg-accent-500 selection:text-white">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Experience Aarohi Farm</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            <div className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-primary-100 p-4 rounded-full mb-4">
-                <FaSwimmingPool className="text-primary-600 text-3xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Swimming Pool</h3>
-              <p className="text-gray-600">Enjoy our refreshing swimming pool during your stay.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-primary-100 p-4 rounded-full mb-4">
-                <FaUtensils className="text-primary-600 text-3xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Food Options</h3>
-              <p className="text-gray-600">Choose between with food (₹2000/person) or without food (₹1500/person) packages.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-primary-100 p-4 rounded-full mb-4">
-                <FaGamepad className="text-primary-600 text-3xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Indoor & Outdoor Games</h3>
-              <p className="text-gray-600">Variety of games available for entertainment and fun.</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-primary-100 p-4 rounded-full mb-4">
-                <FaFire className="text-primary-600 text-3xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Bonfire</h3>
-              <p className="text-gray-600">Enjoy cozy evenings with a bonfire under the stars.</p>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-primary-100 p-4 rounded-full mb-4">
-                <FaLeaf className="text-primary-600 text-3xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Natural Surroundings</h3>
-              <p className="text-gray-600">Immerse yourself in the beautiful natural environment.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Farmhouse Details */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Aarohi Farm Details</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="relative h-96">
-                <Image
-                  src="/images/farmhouse/3.jpg"
-                  alt="Aarohi Farm"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-bold mb-4">2 BHK Farmhouse</h3>
-              <p className="text-gray-700 mb-6">
-                Aarohi Farm is a beautiful 2 BHK farmhouse nestled in the countryside, offering a perfect escape from the hustle and bustle of city life. Surrounded by lush greenery and natural beauty, it provides a serene environment for relaxation and rejuvenation.
+          <motion.div 
+            className="flex flex-col md:flex-row justify-between items-start gap-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp} className="md:w-1/3 sticky top-32">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-cream tracking-tighter">Unmatched<br/><span className="text-accent-500 italic font-serif">Amenities</span></h2>
+              <p className="text-gray-400 text-lg font-light leading-relaxed mb-8">
+                Everything you need for a luxurious, worry-free stay wrapped in nature. We've thought of every detail so you don't have to.
               </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3">
-                    <FaSwimmingPool className="text-primary-600" />
+              <Link href="/amenities" className="inline-flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-white group">
+                <span className="w-12 h-px bg-accent-500 group-hover:w-20 transition-all duration-300"></span>
+                Discover More
+              </Link>
+            </motion.div>
+            
+            <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {[
+                { image: "/images/farmhouse/4.jpg", icon: FaSwimmingPool, title: "Private Pool", desc: "Crystal clear waters exclusively for your group, heated for year-round enjoyment." },
+                { image: "/images/farmhouse/8.jpg", icon: FaUtensils, title: "Farm to Table", desc: "Gourmet meals prepared by our in-house chef using ingredients grown on the estate." },
+                { image: "/images/farmhouse/14.jpg", icon: FaGamepad, title: "Entertainment", desc: "A curated selection of indoor & outdoor games, plus a private screening room." },
+                { image: "/images/farmhouse/19.jpg", icon: FaFire, title: "Evening Bonfire", desc: "Cozy up under the starlit countryside sky with complimentary marshmallows and hot cocoa." }
+              ].map((feature, idx) => (
+                <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer">
+                  <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-8">
+                    <Image src={feature.image} alt={feature.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                    <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full border border-white/50 bg-black/30 backdrop-blur-md flex items-center justify-center">
+                      <feature.icon className="text-xl text-white" />
+                    </div>
                   </div>
-                  <span className="text-gray-700">Private swimming pool for guests</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3">
-                    <FaUtensils className="text-primary-600" />
-                  </div>
-                  <span className="text-gray-700">Optional food service available</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3">
-                    <FaGamepad className="text-primary-600" />
-                  </div>
-                  <span className="text-gray-700">Indoor and outdoor games for entertainment</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3">
-                    <FaFire className="text-primary-600" />
-                  </div>
-                  <span className="text-gray-700">Bonfire arrangement on request</span>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="bg-primary-50 p-4 rounded-lg border border-primary-100 flex-1">
-                  <h4 className="font-bold text-primary-700 mb-1">With Food Package</h4>
-                  <p className="text-3xl font-bold text-primary-600 mb-1">₹2,000</p>
-                  <p className="text-gray-600">per person</p>
-                </div>
-                
-                <div className="bg-primary-50 p-4 rounded-lg border border-primary-100 flex-1">
-                  <h4 className="font-bold text-primary-700 mb-1">Without Food Package</h4>
-                  <p className="text-3xl font-bold text-primary-600 mb-1">₹1,500</p>
-                  <p className="text-gray-600">per person</p>
-                </div>
-              </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tight">{feature.title}</h3>
+                  <p className="text-gray-400 font-light leading-relaxed group-hover:text-gray-300 transition-colors">{feature.desc}</p>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Gallery</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/1.jpg"
-                alt="Aarohi Farm Exterior View"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
+      {/* Call to Action */}
+      <section className="py-32 bg-accent-500 text-primary-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tr from-accent-600 to-accent-400"></div>
+        <div className="container-custom relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter">Discover the beauty.</h2>
+            <p className="text-xl md:text-2xl mb-12 text-primary-900/80 max-w-2xl mx-auto font-light">
+              Immerse yourself in our full portfolio or reach out to us with any inquiries.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link href="/gallery" className="bg-primary-950 text-white hover:bg-primary-900 px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest transition-colors w-full sm:w-auto">
+                View Full Gallery
+              </Link>
+              <span className="font-serif italic text-lg">or</span>
+              <a href="https://wa.me/918983222505" target="_blank" rel="noreferrer" className="bg-transparent border border-primary-950 hover:bg-primary-950/5 text-primary-950 px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-3 w-full sm:w-auto">
+                <FaWhatsapp className="text-xl" /> Chat with Sanjay
+              </a>
             </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/2.jpg"
-                alt="Aarohi Farm Living Room"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/3.jpg"
-                alt="Aarohi Farm Bedroom"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/9.jpg"
-                alt="Aarohi Farm Outdoor Seating"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/19.jpg"
-                alt="Aarohi Farm Night View"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src="/images/farmhouse/23.jpg"
-                alt="Aarohi Farm Living Space"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
-
-          <div className="text-center mt-8">
-            <Link href="/gallery" className="btn btn-primary">
-              View Full Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">What Our Guests Say</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                  <Image
-                    src="/images/farmhouse/21.jpg"
-                    alt="Sarah Johnson"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold">Sarah Johnson</h4>
-                  <p className="text-gray-600 text-sm">Visited in June 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"Our stay at Aarohi Farm was absolutely magical. The farmhouse was beautifully maintained, and the swimming pool was a hit with the kids. The food was delicious and the bonfire evening was unforgettable."</p>
-            </div>
-            
-            {/* Testimonial 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                  <Image
-                    src="/images/farmhouse/22.jpg"
-                    alt="Michael Thompson"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold">Michael Thompson</h4>
-                  <p className="text-gray-600 text-sm">Visited in August 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"Perfect weekend getaway! The 2 BHK farmhouse was spacious and comfortable. We enjoyed the indoor and outdoor games, and the natural surroundings were breathtaking. Will definitely come back!"</p>
-            </div>
-            
-            {/* Testimonial 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                  <Image
-                    src="/images/farmhouse/23.jpg"
-                    alt="Emily Rodriguez"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold">Emily Rodriguez</h4>
-                  <p className="text-gray-600 text-sm">Visited in September 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"We opted for the package with food and it was worth every penny! The meals were delicious and the staff was very attentive. The farmhouse is surrounded by beautiful nature, perfect for relaxation."</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-primary-600 text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Your Countryside Escape?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Book your stay at Aarohi Farm today and create memories that will last a lifetime.
-          </p>
-          <Link href="/booking" className="btn bg-white text-primary-600 hover:bg-gray-100 text-lg px-8 py-3">
-            Book Now
-          </Link>
+          </motion.div>
         </div>
       </section>
     </div>
   )
-} 
+}

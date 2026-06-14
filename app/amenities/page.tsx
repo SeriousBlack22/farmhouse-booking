@@ -28,7 +28,7 @@ const amenities = [
       { icon: <FaTv />, name: 'TV with satellite channels' },
       { icon: <FaWifi />, name: 'Free high-speed WiFi' }
     ],
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    image: '/images/farmhouse/3.jpg'
   },
   {
     id: 'recreation',
@@ -42,21 +42,21 @@ const amenities = [
       { icon: <FaLeaf />, name: 'Garden area for relaxation' },
       { icon: <FaLeaf />, name: 'Nature walks in the surrounding area' }
     ],
-    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80'
+    image: '/images/farmhouse/4.jpg'
   },
   {
     id: 'dining',
     title: 'Dining',
     description: 'Choose between our food package or self-catering options for your meals.',
     items: [
-      { icon: <FaUtensils />, name: 'Option with food (₹2,000 per person)' },
-      { icon: <FaUtensils />, name: 'Option without food (₹1,500 per person)' },
+      { icon: <FaUtensils />, name: 'Option with food (₹2,600 per person)' },
+      { icon: <FaUtensils />, name: 'Option without food (₹1,600 per person)' },
       { icon: <FaUtensils />, name: 'Fully equipped kitchen for self-catering' },
       { icon: <FaUtensils />, name: 'Dining area with table and chairs' },
       { icon: <FaUtensils />, name: 'Outdoor dining option available' },
       { icon: <FaUtensils />, name: 'Special meal requests can be accommodated' }
     ],
-    image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    image: '/images/farmhouse/8.jpg'
   },
   {
     id: 'other',
@@ -70,7 +70,7 @@ const amenities = [
       { icon: <FaUtensils />, name: 'Barbecue facilities available' },
       { icon: <FaSnowflake />, name: 'Power backup' }
     ],
-    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    image: '/images/farmhouse/1.jpg'
   }
 ]
 
@@ -135,17 +135,17 @@ const AmenitiesPage = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="mt-20 bg-primary-600 text-white p-12 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Experience Aarohi Farm?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Book your stay now and enjoy all these amenities in our beautiful farmhouse.
+        <div className="mt-20 bg-primary-900 text-white p-12 rounded-3xl text-center shadow-xl">
+          <h2 className="text-4xl font-bold mb-4 font-serif">Ready to Experience Aarohi Farm?</h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto font-light text-primary-100">
+            Explore our full gallery to see more of these luxurious amenities in detail, or contact us directly.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/booking" className="btn bg-white text-primary-600 hover:bg-gray-100 text-lg px-8 py-3">
-              Book Now
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link href="/gallery" className="bg-accent-500 hover:bg-accent-600 text-white font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full transition-colors">
+              View Full Gallery
             </Link>
-            <Link href="/gallery" className="btn border-2 border-white text-white hover:bg-primary-700 text-lg px-8 py-3">
-              View Gallery
+            <Link href="/contact" className="bg-transparent border border-white hover:bg-white/10 text-white font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full transition-colors">
+              Contact Us
             </Link>
           </div>
         </div>
